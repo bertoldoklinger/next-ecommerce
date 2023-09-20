@@ -7,7 +7,7 @@ import Image from 'next/image'
 export default function Nav({user}: Session){
   return (
     <nav className='flex justify-between items-center py-8'>
-      <h1>Styled</h1>
+      <h1>E-Commerce do Bertoldo</h1>
       <ul className='flex items-center gap-12'>
         {!user && (
           <div>
@@ -18,9 +18,15 @@ export default function Nav({user}: Session){
           </div>
         )}
         {user && (
-          <li>
+          <>
+            <li>
             <Image className="rounded-full" src={user?.image as string} alt='Foto de perfil do usuário' width={48} height={48}/>
           </li>
+          <li>
+            {user.name}
+          </li>
+          </>
+          
         )}
       </ul>
     </nav>
